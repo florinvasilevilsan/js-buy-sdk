@@ -55,6 +55,12 @@ fragment CheckoutFragment on Checkout {
   completedAt
   createdAt
   updatedAt
+  customer {
+    id
+    firstName
+    lastName
+    email
+  }
   email
   discountApplications(first: 10) {
     pageInfo {
