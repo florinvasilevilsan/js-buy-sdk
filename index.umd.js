@@ -8924,12 +8924,18 @@ function handleCustomerMutation(mutationRootKey /* , client*/) {
     var data = _ref.data;
 
     var rootData = data[mutationRootKey]; /* const rootModel = model[mutationRootKey];*/
-    var userErrors = rootData ? rootData.userErrors : [];
 
+    var userErrors = rootData && rootData.userErrors ? rootData.userErrors : [];
     if (userErrors.length) {
       return Promise.reject(new Error(JSON.stringify(userErrors)));
     }
     delete rootData.userErrors;
+
+    var customerUserErrors = rootData && rootData.customerUserErrors ? rootData.customerUserErrors : [];
+    if (customerUserErrors.length) {
+      return Promise.reject(new Error(JSON.stringify(customerUserErrors)));
+    }
+    delete rootData.customerUserErrors;
 
     return Promise.resolve(rootData);
   };
