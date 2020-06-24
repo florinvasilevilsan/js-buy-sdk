@@ -9387,22 +9387,22 @@ var CustomerResource = function (_Resource) {
      * Creates an access token for an existing user.
      *
      * @example
-     * const input = 'dsallfmnodnjopkasndgkjodsfpasmdfp';
+     * const multipassToken = 'dsallfmnodnjopkasndgkjodsfpasmdfp';
      *
-     * client.customer.createAccessToken(input).then((token) => {
+     * client.customer.createAccessToken(multipassToken).then((token) => {
      *   // Do something with the token
      * });
      *
-     * @param {Object} [input] An input string containing a multipass token
+     * @param {Object} [multipassToken] An multipassToken string containing a multipass token
      * @return {Promise|GraphModel} A promise resolving with the customer access token.
      */
 
   }, {
     key: 'createAccessTokenWithMultipass',
     value: function createAccessTokenWithMultipass() {
-      var input = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      var multipassToken = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
-      return this.graphQLClient.send(query$27, { input: input }).then(handleCustomerMutation('customerAccessTokenCreateWithMultipass', this.graphQLClient));
+      return this.graphQLClient.send(query$27, { multipassToken: multipassToken }).then(handleCustomerMutation('customerAccessTokenCreateWithMultipass', this.graphQLClient));
     }
 
     /**
