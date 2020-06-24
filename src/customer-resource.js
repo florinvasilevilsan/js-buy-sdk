@@ -55,18 +55,18 @@ class CustomerResource extends Resource  {
    * Creates an access token for an existing user.
    *
    * @example
-   * const input = 'dsallfmnodnjopkasndgkjodsfpasmdfp';
+   * const multipassToken = 'dsallfmnodnjopkasndgkjodsfpasmdfp';
    *
-   * client.customer.createAccessToken(input).then((token) => {
+   * client.customer.createAccessToken(multipassToken).then((token) => {
    *   // Do something with the token
    * });
    *
-   * @param {Object} [input] An input string containing a multipass token
+   * @param {Object} [multipassToken] An multipassToken string containing a multipass token
    * @return {Promise|GraphModel} A promise resolving with the customer access token.
    */
-  createAccessTokenWithMultipass(input = '') {
+  createAccessTokenWithMultipass(multipassToken = '') {
     return this.graphQLClient
-      .send(customerAccessTokenCreateWithMultipassMutation, {input})
+      .send(customerAccessTokenCreateWithMultipassMutation, {multipassToken})
       .then(handleCustomerMutation('customerAccessTokenCreateWithMultipass', this.graphQLClient));
   }
 
