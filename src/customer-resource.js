@@ -16,8 +16,6 @@ import customerDefaultAddressUpdateMutation from './graphql/customerDefaultAddre
 import customerRecoverMutation from './graphql/customerRecoverMutation.graphql';
 import customerResetMutation from './graphql/customerResetMutation.graphql';
 import customerActivateMutation from './graphql/customerActivateMutation.graphql';
-import checkoutCustomerAssociateMutation from './graphql/checkoutCustomerAssociateMutation.graphql';
-import checkoutCustomerDisassociateMutation from './graphql/checkoutCustomerDisassociateMutation.graphql';
 import customerQuery from './graphql/customerQuery.graphql';
 
 /**
@@ -347,41 +345,6 @@ class CustomerResource extends Resource  {
     return this.graphQLClient
       .send(customerQuery, {customerAccessToken})
       .then(defaultResolver('customer'));
-  }
-
-  /**
-   * Associates a checkout with a customer.
-   *
-   * @example
-   * client.checkout.associateCustomer('FlZj9rZXlN5MDY4ZDFiZTUyZTUwNTE2MDNhZjg=', 'ae0f1d2e179c9571122a0595a6ac8125').then((checkout) => {
-   *   // Do something with the checkout after associating a customer
-   * });
-   *
-   * @param {String} checkoutId The id of the checkout.
-   * @param {String} customerAccessToken The id of the checkout to fetch.
-   * @return {Promise|GraphModel} A promise resolving with the checkout.
-   */
-  associateWithCheckout(checkoutId, customerAccessToken) {
-    return this.graphQLClient
-      .send(checkoutCustomerAssociateMutation, {checkoutId, customerAccessToken})
-      .then(handleCheckoutMutation('checkoutCustomerAssociate', this.graphQLClient));
-  }
-
-  /**
-   * Disassociates a checkout with a customer.
-   *
-   * @example
-   * client.checkout.disassociateCustomer('FlZj9rZXlN5MDY4ZDFiZTUyZTUwNTE2MDNhZjg=').then((checkout) => {
-   *   // Do something with the checkout after disassociating a customer
-   * });
-   *
-   * @param {String} checkoutId The id of the checkout.
-   * @return {Promise|GraphModel} A promise resolving with the checkout.
-   */
-  disassociateWithCheckout(checkoutId) {
-    return this.graphQLClient
-      .send(checkoutCustomerDisassociateMutation, {checkoutId})
-      .then(handleCheckoutMutation('checkoutCustomerDisassociate', this.graphQLClient));
   }
 }
 

@@ -3951,7 +3951,7 @@ var ShopResource = function (_Resource) {
   return ShopResource;
 }(Resource);
 
-function handleCheckoutMutation$1(mutationRootKey, client) {
+function handleCheckoutMutation(mutationRootKey, client) {
   return function (_ref) {
     var _ref$data = _ref.data,
         data = _ref$data === undefined ? {} : _ref$data,
@@ -8552,7 +8552,7 @@ var CheckoutResource = function (_Resource) {
     value: function create() {
       var input = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-      return this.graphQLClient.send(query$12, { input: input }).then(handleCheckoutMutation$1('checkoutCreate', this.graphQLClient));
+      return this.graphQLClient.send(query$12, { input: input }).then(handleCheckoutMutation('checkoutCreate', this.graphQLClient));
     }
 
     /**
@@ -8579,7 +8579,7 @@ var CheckoutResource = function (_Resource) {
     value: function updateAttributes(checkoutId) {
       var input = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-      return this.graphQLClient.send(query$17, { checkoutId: checkoutId, input: input }).then(handleCheckoutMutation$1('checkoutAttributesUpdateV2', this.graphQLClient));
+      return this.graphQLClient.send(query$17, { checkoutId: checkoutId, input: input }).then(handleCheckoutMutation('checkoutAttributesUpdateV2', this.graphQLClient));
     }
 
     /**
@@ -8601,7 +8601,7 @@ var CheckoutResource = function (_Resource) {
   }, {
     key: 'updateEmail',
     value: function updateEmail(checkoutId, email) {
-      return this.graphQLClient.send(query$22, { checkoutId: checkoutId, email: email }).then(handleCheckoutMutation$1('checkoutEmailUpdateV2', this.graphQLClient));
+      return this.graphQLClient.send(query$22, { checkoutId: checkoutId, email: email }).then(handleCheckoutMutation('checkoutEmailUpdateV2', this.graphQLClient));
     }
 
     /**
@@ -8623,7 +8623,7 @@ var CheckoutResource = function (_Resource) {
   }, {
     key: 'addLineItems',
     value: function addLineItems(checkoutId, lineItems) {
-      return this.graphQLClient.send(query$13, { checkoutId: checkoutId, lineItems: lineItems }).then(handleCheckoutMutation$1('checkoutLineItemsAdd', this.graphQLClient));
+      return this.graphQLClient.send(query$13, { checkoutId: checkoutId, lineItems: lineItems }).then(handleCheckoutMutation('checkoutLineItemsAdd', this.graphQLClient));
     }
 
     /**
@@ -8645,7 +8645,7 @@ var CheckoutResource = function (_Resource) {
   }, {
     key: 'addDiscount',
     value: function addDiscount(checkoutId, discountCode) {
-      return this.graphQLClient.send(query$18, { checkoutId: checkoutId, discountCode: discountCode }).then(handleCheckoutMutation$1('checkoutDiscountCodeApplyV2', this.graphQLClient));
+      return this.graphQLClient.send(query$18, { checkoutId: checkoutId, discountCode: discountCode }).then(handleCheckoutMutation('checkoutDiscountCodeApplyV2', this.graphQLClient));
     }
 
     /**
@@ -8665,7 +8665,7 @@ var CheckoutResource = function (_Resource) {
   }, {
     key: 'removeDiscount',
     value: function removeDiscount(checkoutId) {
-      return this.graphQLClient.send(query$19, { checkoutId: checkoutId }).then(handleCheckoutMutation$1('checkoutDiscountCodeRemove', this.graphQLClient));
+      return this.graphQLClient.send(query$19, { checkoutId: checkoutId }).then(handleCheckoutMutation('checkoutDiscountCodeRemove', this.graphQLClient));
     }
 
     /**
@@ -8687,7 +8687,7 @@ var CheckoutResource = function (_Resource) {
   }, {
     key: 'addGiftCards',
     value: function addGiftCards(checkoutId, giftCardCodes) {
-      return this.graphQLClient.send(query$20, { checkoutId: checkoutId, giftCardCodes: giftCardCodes }).then(handleCheckoutMutation$1('checkoutGiftCardsAppend', this.graphQLClient));
+      return this.graphQLClient.send(query$20, { checkoutId: checkoutId, giftCardCodes: giftCardCodes }).then(handleCheckoutMutation('checkoutGiftCardsAppend', this.graphQLClient));
     }
 
     /**
@@ -8709,7 +8709,7 @@ var CheckoutResource = function (_Resource) {
   }, {
     key: 'removeGiftCard',
     value: function removeGiftCard(checkoutId, appliedGiftCardId) {
-      return this.graphQLClient.send(query$21, { checkoutId: checkoutId, appliedGiftCardId: appliedGiftCardId }).then(handleCheckoutMutation$1('checkoutGiftCardRemoveV2', this.graphQLClient));
+      return this.graphQLClient.send(query$21, { checkoutId: checkoutId, appliedGiftCardId: appliedGiftCardId }).then(handleCheckoutMutation('checkoutGiftCardRemoveV2', this.graphQLClient));
     }
 
     /**
@@ -8731,7 +8731,7 @@ var CheckoutResource = function (_Resource) {
   }, {
     key: 'removeLineItems',
     value: function removeLineItems(checkoutId, lineItemIds) {
-      return this.graphQLClient.send(query$14, { checkoutId: checkoutId, lineItemIds: lineItemIds }).then(handleCheckoutMutation$1('checkoutLineItemsRemove', this.graphQLClient));
+      return this.graphQLClient.send(query$14, { checkoutId: checkoutId, lineItemIds: lineItemIds }).then(handleCheckoutMutation('checkoutLineItemsRemove', this.graphQLClient));
     }
 
     /**
@@ -8753,7 +8753,7 @@ var CheckoutResource = function (_Resource) {
   }, {
     key: 'replaceLineItems',
     value: function replaceLineItems(checkoutId, lineItems) {
-      return this.graphQLClient.send(query$15, { checkoutId: checkoutId, lineItems: lineItems }).then(handleCheckoutMutation$1('checkoutLineItemsReplace', this.graphQLClient));
+      return this.graphQLClient.send(query$15, { checkoutId: checkoutId, lineItems: lineItems }).then(handleCheckoutMutation('checkoutLineItemsReplace', this.graphQLClient));
     }
 
     /**
@@ -8781,7 +8781,7 @@ var CheckoutResource = function (_Resource) {
   }, {
     key: 'updateLineItems',
     value: function updateLineItems(checkoutId, lineItems) {
-      return this.graphQLClient.send(query$16, { checkoutId: checkoutId, lineItems: lineItems }).then(handleCheckoutMutation$1('checkoutLineItemsUpdate', this.graphQLClient));
+      return this.graphQLClient.send(query$16, { checkoutId: checkoutId, lineItems: lineItems }).then(handleCheckoutMutation('checkoutLineItemsUpdate', this.graphQLClient));
     }
 
     /**
@@ -8800,7 +8800,7 @@ var CheckoutResource = function (_Resource) {
   }, {
     key: 'associateCustomer',
     value: function associateCustomer(checkoutId, customerAccessToken) {
-      return this.graphQLClient.send(query$24, { checkoutId: checkoutId, customerAccessToken: customerAccessToken }).then(handleCheckoutMutation$1('checkoutCustomerAssociate', this.graphQLClient));
+      return this.graphQLClient.send(query$24, { checkoutId: checkoutId, customerAccessToken: customerAccessToken }).then(handleCheckoutMutation('checkoutCustomerAssociate', this.graphQLClient));
     }
 
     /**
@@ -8818,7 +8818,7 @@ var CheckoutResource = function (_Resource) {
   }, {
     key: 'disassociateCustomer',
     value: function disassociateCustomer(checkoutId) {
-      return this.graphQLClient.send(query$25, { checkoutId: checkoutId }).then(handleCheckoutMutation$1('checkoutCustomerDisassociate', this.graphQLClient));
+      return this.graphQLClient.send(query$25, { checkoutId: checkoutId }).then(handleCheckoutMutation('checkoutCustomerDisassociate', this.graphQLClient));
     }
 
     /**
@@ -8851,7 +8851,7 @@ var CheckoutResource = function (_Resource) {
   }, {
     key: 'updateShippingAddress',
     value: function updateShippingAddress(checkoutId, shippingAddress) {
-      return this.graphQLClient.send(query$23, { checkoutId: checkoutId, shippingAddress: shippingAddress }).then(handleCheckoutMutation$1('checkoutShippingAddressUpdateV2', this.graphQLClient));
+      return this.graphQLClient.send(query$23, { checkoutId: checkoutId, shippingAddress: shippingAddress }).then(handleCheckoutMutation('checkoutShippingAddressUpdateV2', this.graphQLClient));
     }
   }]);
   return CheckoutResource;
@@ -9722,43 +9722,6 @@ var CustomerResource = function (_Resource) {
     key: 'fetch',
     value: function fetch(customerAccessToken) {
       return this.graphQLClient.send(query$39, { customerAccessToken: customerAccessToken }).then(defaultResolver('customer'));
-    }
-
-    /**
-     * Associates a checkout with a customer.
-     *
-     * @example
-     * client.checkout.associateCustomer('FlZj9rZXlN5MDY4ZDFiZTUyZTUwNTE2MDNhZjg=', 'ae0f1d2e179c9571122a0595a6ac8125').then((checkout) => {
-     *   // Do something with the checkout after associating a customer
-     * });
-     *
-     * @param {String} checkoutId The id of the checkout.
-     * @param {String} customerAccessToken The id of the checkout to fetch.
-     * @return {Promise|GraphModel} A promise resolving with the checkout.
-     */
-
-  }, {
-    key: 'associateWithCheckout',
-    value: function associateWithCheckout(checkoutId, customerAccessToken) {
-      return this.graphQLClient.send(query$24, { checkoutId: checkoutId, customerAccessToken: customerAccessToken }).then(handleCheckoutMutation('checkoutCustomerAssociate', this.graphQLClient));
-    }
-
-    /**
-     * Disassociates a checkout with a customer.
-     *
-     * @example
-     * client.checkout.disassociateCustomer('FlZj9rZXlN5MDY4ZDFiZTUyZTUwNTE2MDNhZjg=').then((checkout) => {
-     *   // Do something with the checkout after disassociating a customer
-     * });
-     *
-     * @param {String} checkoutId The id of the checkout.
-     * @return {Promise|GraphModel} A promise resolving with the checkout.
-     */
-
-  }, {
-    key: 'disassociateWithCheckout',
-    value: function disassociateWithCheckout(checkoutId) {
-      return this.graphQLClient.send(query$25, { checkoutId: checkoutId }).then(handleCheckoutMutation('checkoutCustomerDisassociate', this.graphQLClient));
     }
   }]);
   return CustomerResource;
