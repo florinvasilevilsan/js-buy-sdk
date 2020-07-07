@@ -16,7 +16,7 @@ import checkoutGiftCardsAppendMutation from './graphql/checkoutGiftCardsAppendMu
 import checkoutGiftCardRemoveV2Mutation from './graphql/checkoutGiftCardRemoveV2Mutation.graphql';
 import checkoutEmailUpdateV2Mutation from './graphql/checkoutEmailUpdateV2Mutation.graphql';
 import checkoutShippingAddressUpdateV2Mutation from './graphql/checkoutShippingAddressUpdateV2Mutation.graphql';
-import checkoutCustomerAssociateMutation from './graphql/checkoutCustomerAssociateMutation.graphql';
+import checkoutCustomerAssociateV2Mutation from './graphql/checkoutCustomerAssociateV2Mutation.graphql';
 import checkoutCustomerDisassociateMutation from './graphql/checkoutCustomerDisassociateMutation.graphql';
 
 /**
@@ -311,8 +311,8 @@ class CheckoutResource extends Resource {
    */
   associateCustomer(checkoutId, customerAccessToken) {
     return this.graphQLClient
-      .send(checkoutCustomerAssociateMutation, {checkoutId, customerAccessToken})
-      .then(handleCheckoutMutation('checkoutCustomerAssociate', this.graphQLClient));
+      .send(checkoutCustomerAssociateV2Mutation, {checkoutId, customerAccessToken})
+      .then(handleCheckoutMutation('checkoutCustomerAssociateV2', this.graphQLClient));
   }
 
   /**

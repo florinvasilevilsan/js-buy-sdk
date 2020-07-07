@@ -2306,6 +2306,10 @@ var Config = function () {
     if (attrs.hasOwnProperty('language')) {
       this.language = attrs.language;
     }
+
+    if (attrs.hasOwnProperty('customerAccessToken')) {
+      this.customerAccessToken = attrs.customerAccessToken;
+    }
   }
 
   return Config;
@@ -8425,27 +8429,31 @@ function query$23(client) {
   });
   return document;
 }
-
+// HERE
 function query$24(client) {
   var document = client.document();
   var variables = {};
-  variables.checkoutCustomerAssociate = {};
-  variables.checkoutCustomerAssociate.checkoutId = client.variable("checkoutId", "ID!");
-  variables.checkoutCustomerAssociate.customerAccessToken = client.variable("customerAccessToken", "String!");
-  document.addMutation("checkoutCustomerAssociate", [variables.checkoutCustomerAssociate.checkoutId, variables.checkoutCustomerAssociate.customerAccessToken], function (root) {
-    root.add("checkoutCustomerAssociate", {
+  variables.checkoutCustomerAssociateV2 = {};
+  variables.checkoutCustomerAssociateV2.checkoutId = client.variable("checkoutId", "ID!");
+  variables.checkoutCustomerAssociateV2.customerAccessToken = client.variable("customerAccessToken", "String!");
+  document.addMutation("checkoutCustomerAssociateV2", [variables.checkoutCustomerAssociateV2.checkoutId, variables.checkoutCustomerAssociateV2.customerAccessToken], function (root) {
+    root.add("checkoutCustomerAssociateV2", {
       args: {
-        checkoutId: variables.checkoutCustomerAssociate.checkoutId,
-        customerAccessToken: variables.checkoutCustomerAssociate.customerAccessToken
+        checkoutId: variables.checkoutCustomerAssociateV2.checkoutId,
+        customerAccessToken: variables.checkoutCustomerAssociateV2.customerAccessToken
       }
-    }, function (checkoutCustomerAssociate) {
-      checkoutCustomerAssociate.add("userErrors", function (userErrors) {
+    }, function (checkoutCustomerAssociateV2) {
+      checkoutCustomerAssociateV2.add("checkoutUserErrors", function (userErrors) {
+        userErrors.add("code");
         userErrors.add("field");
         userErrors.add("message");
       });
-      checkoutCustomerAssociate.add("checkout", function (checkout) {
-        checkout.add("id");
+      checkoutCustomerAssociateV2.add("userErrors", function (userErrors) {
+        userErrors.add("field");
+        userErrors.add("message");
       });
+      checkoutCustomerAssociateV2.add("checkout");
+      //checkoutCustomerAssociateV2.add("customer");
     });
   });
   return document;
@@ -8793,10 +8801,10 @@ var CheckoutResource = function (_Resource) {
      * @return {Promise|GraphModel} A promise resolving with the checkout.
      */
 
-  }, {
+  }, {// HERE
     key: 'associateCustomer',
     value: function associateCustomer(checkoutId, customerAccessToken) {
-      return this.graphQLClient.send(query$24, { checkoutId: checkoutId, customerAccessToken: customerAccessToken }).then(handleCheckoutMutation('checkoutCustomerAssociate', this.graphQLClient));
+      return this.graphQLClient.send(query$24, { checkoutId: checkoutId, customerAccessToken: customerAccessToken }).then(handleCheckoutMutation('checkoutCustomerAssociateV2', this.graphQLClient));
     }
 
     /**
@@ -9828,11 +9836,35 @@ var CheckoutCreatePayload = {
   "implementsNode": false
 };
 
+
+var Customer = {
+  "name": "Customer",
+  "kind": "OBJECT",
+  "fieldBaseTypes": {
+    "acceptsMarketing": "Boolean",
+    "addresses": "MailingAddressConnection",
+    "createdAt": "DateTime",
+    "defaultAddress": "MailingAddress",
+    "displayName": "String",
+    "email": "String",
+    "firstName": "String",
+    "id": "ID",
+    "lastName": "String",
+    "orders": "OrderConnection",
+    "phone": "String",
+    "updatedAt": "DateTime"
+  },
+  "implementsNode": false
+};
+
+// HERE
 var CheckoutCustomerAssociatePayload = {
   "name": "CheckoutCustomerAssociatePayload",
   "kind": "OBJECT",
   "fieldBaseTypes": {
     "checkout": "Checkout",
+    //"customer": "Customer",
+    "checkoutUserErrors": "CheckoutUserError",
     "userErrors": "UserError"
   },
   "implementsNode": false
@@ -10051,26 +10083,6 @@ var CountryCode = {
 var CurrencyCode = {
   "name": "CurrencyCode",
   "kind": "ENUM"
-};
-
-var Customer = {
-  "name": "Customer",
-  "kind": "OBJECT",
-  "fieldBaseTypes": {
-    "acceptsMarketing": "Boolean",
-    "addresses": "MailingAddressConnection",
-    "createdAt": "DateTime",
-    "defaultAddress": "MailingAddress",
-    "displayName": "String",
-    "email": "String",
-    "firstName": "String",
-    "id": "ID",
-    "lastName": "String",
-    "orders": "OrderConnection",
-    "phone": "String",
-    "updatedAt": "DateTime"
-  },
-  "implementsNode": false
 };
 
 var CustomerAccessToken = {
@@ -10445,7 +10457,7 @@ var Mutation$1 = {
   "fieldBaseTypes": {
     "checkoutAttributesUpdateV2": "CheckoutAttributesUpdateV2Payload",
     "checkoutCreate": "CheckoutCreatePayload",
-    "checkoutCustomerAssociate": "CheckoutCustomerAssociatePayload",
+    "checkoutCustomerAssociateV2": "CheckoutCustomerAssociatePayload",
     "checkoutCustomerDisassociate": "CheckoutCustomerDisassociatePayload",
     "checkoutDiscountCodeApplyV2": "CheckoutDiscountCodeApplyV2Payload",
     "checkoutDiscountCodeRemove": "CheckoutDiscountCodeRemovePayload",
