@@ -24,6 +24,7 @@ fragment CheckoutFragment on Checkout {
   requiresShipping
   note
   paymentDue
+  availableShippingRates
   paymentDueV2 {
     amount
     currencyCode

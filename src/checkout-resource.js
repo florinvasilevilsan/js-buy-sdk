@@ -18,6 +18,7 @@ import checkoutEmailUpdateV2Mutation from './graphql/checkoutEmailUpdateV2Mutati
 import checkoutShippingAddressUpdateV2Mutation from './graphql/checkoutShippingAddressUpdateV2Mutation.graphql';
 import checkoutCustomerAssociateV2Mutation from './graphql/checkoutCustomerAssociateV2Mutation.graphql';
 import checkoutCustomerDisassociateMutation from './graphql/checkoutCustomerDisassociateMutation.graphql';
+import checkoutShippingLineUpdateMutation from './graphql/checkoutShippingLineUpdateMutation.graphql';
 
 /**
  * The JS Buy SDK checkout resource
@@ -362,6 +363,27 @@ class CheckoutResource extends Resource {
     return this.graphQLClient
       .send(checkoutShippingAddressUpdateV2Mutation, {checkoutId, shippingAddress})
       .then(handleCheckoutMutation('checkoutShippingAddressUpdateV2', this.graphQLClient));
+  }
+
+  /**
+   * Updates shipping rate on an existing checkout.
+   *
+   * @example
+   * const checkoutId = 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC9kMTZmM2EzMDM4Yjc4N=';
+   * const shippingRateHandle = 'placeholder';
+   *
+   * client.checkout.updateShippingAddress(checkoutId, shippingRateHandle).then(checkout => {
+   *   // Do something with the updated checkout
+   * });
+   *
+   * @param  {String} checkoutId The ID of the checkout to update shipping address.
+   * @param  {Object} shippingRateHandle A shipping rate handle.
+   * @return {Promise|GraphModel} A promise resolving with the updated checkout.
+   */
+  updateShippingAddress(checkoutId, shippingRateHandle) {
+    return this.graphQLClient
+      .send(checkoutShippingLineUpdateMutation, {checkoutId, shippingRateHandle})
+      .then(handleCheckoutMutation('checkoutShippingLineUpdate', this.graphQLClient));
   }
 }
 

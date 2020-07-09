@@ -4131,6 +4131,7 @@ function query$11(client) {
     root.add("requiresShipping");
     root.add("note");
     root.add("paymentDue");
+    root.add("availableShippingRates");
     root.add("paymentDueV2", function (paymentDueV2) {
       paymentDueV2.add("amount");
       paymentDueV2.add("currencyCode");
@@ -4465,6 +4466,7 @@ function query$12(client) {
     root.add("requiresShipping");
     root.add("note");
     root.add("paymentDue");
+    root.add("availableShippingRates");
     root.add("paymentDueV2", function (paymentDueV2) {
       paymentDueV2.add("amount");
       paymentDueV2.add("currencyCode");
@@ -4808,6 +4810,7 @@ function query$13(client) {
     root.add("requiresShipping");
     root.add("note");
     root.add("paymentDue");
+    root.add("availableShippingRates");
     root.add("paymentDueV2", function (paymentDueV2) {
       paymentDueV2.add("amount");
       paymentDueV2.add("currencyCode");
@@ -5152,6 +5155,7 @@ function query$14(client) {
     root.add("requiresShipping");
     root.add("note");
     root.add("paymentDue");
+    root.add("availableShippingRates");
     root.add("paymentDueV2", function (paymentDueV2) {
       paymentDueV2.add("amount");
       paymentDueV2.add("currencyCode");
@@ -5492,6 +5496,7 @@ function query$15(client) {
     root.add("requiresShipping");
     root.add("note");
     root.add("paymentDue");
+    root.add("availableShippingRates");
     root.add("paymentDueV2", function (paymentDueV2) {
       paymentDueV2.add("amount");
       paymentDueV2.add("currencyCode");
@@ -5833,6 +5838,7 @@ function query$16(client) {
     root.add("requiresShipping");
     root.add("note");
     root.add("paymentDue");
+    root.add("availableShippingRates");
     root.add("paymentDueV2", function (paymentDueV2) {
       paymentDueV2.add("amount");
       paymentDueV2.add("currencyCode");
@@ -6177,6 +6183,7 @@ function query$17(client) {
     root.add("requiresShipping");
     root.add("note");
     root.add("paymentDue");
+    root.add("availableShippingRates");
     root.add("paymentDueV2", function (paymentDueV2) {
       paymentDueV2.add("amount");
       paymentDueV2.add("currencyCode");
@@ -6521,6 +6528,7 @@ function query$18(client) {
     root.add("requiresShipping");
     root.add("note");
     root.add("paymentDue");
+    root.add("availableShippingRates");
     root.add("paymentDueV2", function (paymentDueV2) {
       paymentDueV2.add("amount");
       paymentDueV2.add("currencyCode");
@@ -6864,6 +6872,7 @@ function query$19(client) {
     root.add("requiresShipping");
     root.add("note");
     root.add("paymentDue");
+    root.add("availableShippingRates");
     root.add("paymentDueV2", function (paymentDueV2) {
       paymentDueV2.add("amount");
       paymentDueV2.add("currencyCode");
@@ -7207,6 +7216,7 @@ function query$20(client) {
     root.add("requiresShipping");
     root.add("note");
     root.add("paymentDue");
+    root.add("availableShippingRates");
     root.add("paymentDueV2", function (paymentDueV2) {
       paymentDueV2.add("amount");
       paymentDueV2.add("currencyCode");
@@ -7551,6 +7561,7 @@ function query$21(client) {
     root.add("requiresShipping");
     root.add("note");
     root.add("paymentDue");
+    root.add("availableShippingRates");
     root.add("paymentDueV2", function (paymentDueV2) {
       paymentDueV2.add("amount");
       paymentDueV2.add("currencyCode");
@@ -7895,6 +7906,7 @@ function query$22(client) {
     root.add("requiresShipping");
     root.add("note");
     root.add("paymentDue");
+    root.add("availableShippingRates");
     root.add("paymentDueV2", function (paymentDueV2) {
       paymentDueV2.add("amount");
       paymentDueV2.add("currencyCode");
@@ -8239,6 +8251,7 @@ function query$23(client) {
     root.add("requiresShipping");
     root.add("note");
     root.add("paymentDue");
+    root.add("availableShippingRates");
     root.add("paymentDueV2", function (paymentDueV2) {
       paymentDueV2.add("amount");
       paymentDueV2.add("currencyCode");
@@ -8429,21 +8442,25 @@ function query$23(client) {
 function query$24(client) {
   var document = client.document();
   var variables = {};
-  variables.checkoutCustomerAssociate = {};
-  variables.checkoutCustomerAssociate.checkoutId = client.variable("checkoutId", "ID!");
-  variables.checkoutCustomerAssociate.customerAccessToken = client.variable("customerAccessToken", "String!");
-  document.addMutation("checkoutCustomerAssociate", [variables.checkoutCustomerAssociate.checkoutId, variables.checkoutCustomerAssociate.customerAccessToken], function (root) {
-    root.add("checkoutCustomerAssociate", {
+  variables.checkoutCustomerAssociateV2 = {};
+  variables.checkoutCustomerAssociateV2.checkoutId = client.variable("checkoutId", "ID!");
+  variables.checkoutCustomerAssociateV2.customerAccessToken = client.variable("customerAccessToken", "String!");
+  document.addMutation("checkoutCustomerAssociateV2", [variables.checkoutCustomerAssociateV2.checkoutId, variables.checkoutCustomerAssociateV2.customerAccessToken], function (root) {
+    root.add("checkoutCustomerAssociateV2", {
       args: {
-        checkoutId: variables.checkoutCustomerAssociate.checkoutId,
-        customerAccessToken: variables.checkoutCustomerAssociate.customerAccessToken
+        checkoutId: variables.checkoutCustomerAssociateV2.checkoutId,
+        customerAccessToken: variables.checkoutCustomerAssociateV2.customerAccessToken
       }
-    }, function (checkoutCustomerAssociate) {
-      checkoutCustomerAssociate.add("userErrors", function (userErrors) {
+    }, function (checkoutCustomerAssociateV2) {
+      checkoutCustomerAssociateV2.add("userErrors", function (userErrors) {
         userErrors.add("field");
         userErrors.add("message");
       });
-      checkoutCustomerAssociate.add("checkout", function (checkout) {
+      checkoutCustomerAssociateV2.add("checkoutUserErrors", function (checkoutUserErrors) {
+        checkoutUserErrors.add("field");
+        checkoutUserErrors.add("message");
+      });
+      checkoutCustomerAssociateV2.add("checkout", function (checkout) {
         checkout.add("id");
       });
     });
@@ -8468,6 +8485,32 @@ function query$25(client) {
       });
       checkoutCustomerDisassociate.add("checkout", function (checkout) {
         checkout.add("id");
+      });
+    });
+  });
+  return document;
+}
+
+function query$26(client) {
+  var document = client.document();
+  var variables = {};
+  variables.checkoutShippingLineUpdate = {};
+  variables.checkoutShippingLineUpdate.checkoutId = client.variable("checkoutId", "ID!");
+  variables.checkoutShippingLineUpdate.shippingRateHandle = client.variable("shippingRateHandle", "String!");
+  document.addMutation("checkoutShippingLineUpdate", [variables.checkoutShippingLineUpdate.checkoutId, variables.checkoutShippingLineUpdate.shippingRateHandle], function (root) {
+    root.add("checkoutShippingLineUpdate", {
+      args: {
+        checkoutId: variables.checkoutShippingLineUpdate.checkoutId,
+        shippingRateHandle: variables.checkoutShippingLineUpdate.shippingRateHandle
+      }
+    }, function (checkoutShippingLineUpdate) {
+      checkoutShippingLineUpdate.add("checkout", function (checkout) {
+        checkout.add("id");
+      });
+      checkoutShippingLineUpdate.add("checkoutUserErrors", function (checkoutUserErrors) {
+        checkoutUserErrors.add("code");
+        checkoutUserErrors.add("field");
+        checkoutUserErrors.add("message");
       });
     });
   });
@@ -8796,7 +8839,7 @@ var CheckoutResource = function (_Resource) {
   }, {
     key: 'associateCustomer',
     value: function associateCustomer(checkoutId, customerAccessToken) {
-      return this.graphQLClient.send(query$24, { checkoutId: checkoutId, customerAccessToken: customerAccessToken }).then(handleCheckoutMutation('checkoutCustomerAssociate', this.graphQLClient));
+      return this.graphQLClient.send(query$24, { checkoutId: checkoutId, customerAccessToken: customerAccessToken }).then(handleCheckoutMutation('checkoutCustomerAssociateV2', this.graphQLClient));
     }
 
     /**
@@ -8848,6 +8891,28 @@ var CheckoutResource = function (_Resource) {
     key: 'updateShippingAddress',
     value: function updateShippingAddress(checkoutId, shippingAddress) {
       return this.graphQLClient.send(query$23, { checkoutId: checkoutId, shippingAddress: shippingAddress }).then(handleCheckoutMutation('checkoutShippingAddressUpdateV2', this.graphQLClient));
+    }
+
+    /**
+     * Updates shipping rate on an existing checkout.
+     *
+     * @example
+     * const checkoutId = 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC9kMTZmM2EzMDM4Yjc4N=';
+     * const shippingRateHandle = 'placeholder';
+     *
+     * client.checkout.updateShippingAddress(checkoutId, shippingRateHandle).then(checkout => {
+     *   // Do something with the updated checkout
+     * });
+     *
+     * @param  {String} checkoutId The ID of the checkout to update shipping address.
+     * @param  {Object} shippingRateHandle A shipping rate handle.
+     * @return {Promise|GraphModel} A promise resolving with the updated checkout.
+     */
+
+  }, {
+    key: 'updateShippingAddress',
+    value: function updateShippingAddress(checkoutId, shippingRateHandle) {
+      return this.graphQLClient.send(query$26, { checkoutId: checkoutId, shippingRateHandle: shippingRateHandle }).then(handleCheckoutMutation('checkoutShippingLineUpdate', this.graphQLClient));
     }
   }]);
   return CheckoutResource;
@@ -8937,7 +9002,7 @@ function handleCustomerMutation(mutationRootKey /* , client*/) {
   };
 }
 
-function query$26(client) {
+function query$27(client) {
   var document = client.document();
   var variables = {};
   variables.customerAccessTokenCreate = {};
@@ -8961,7 +9026,7 @@ function query$26(client) {
   return document;
 }
 
-function query$27(client) {
+function query$28(client) {
   var document = client.document();
   var variables = {};
   variables.customerAccessTokenCreateWithMultipass = {};
@@ -8986,7 +9051,7 @@ function query$27(client) {
   return document;
 }
 
-function query$28(client) {
+function query$29(client) {
   var document = client.document();
   var variables = {};
   variables.customerAccessTokenDelete = {};
@@ -9008,7 +9073,7 @@ function query$28(client) {
   return document;
 }
 
-function query$29(client) {
+function query$30(client) {
   var document = client.document();
   var variables = {};
   variables.customerAccessTokenRenew = {};
@@ -9032,7 +9097,7 @@ function query$29(client) {
   return document;
 }
 
-function query$30(client) {
+function query$31(client) {
   var document = client.document();
   var variables = {};
   variables.customerCreate = {};
@@ -9055,7 +9120,7 @@ function query$30(client) {
   return document;
 }
 
-function query$31(client) {
+function query$32(client) {
   var document = client.document();
   var variables = {};
   variables.customerUpdate = {};
@@ -9080,7 +9145,7 @@ function query$31(client) {
   return document;
 }
 
-function query$32(client) {
+function query$33(client) {
   var document = client.document();
   var variables = {};
   variables.customerAddressCreate = {};
@@ -9105,7 +9170,7 @@ function query$32(client) {
   return document;
 }
 
-function query$33(client) {
+function query$34(client) {
   var document = client.document();
   var variables = {};
   variables.customerAddressUpdate = {};
@@ -9132,7 +9197,7 @@ function query$33(client) {
   return document;
 }
 
-function query$34(client) {
+function query$35(client) {
   var document = client.document();
   var variables = {};
   variables.customerAddressDelete = {};
@@ -9155,7 +9220,7 @@ function query$34(client) {
   return document;
 }
 
-function query$35(client) {
+function query$36(client) {
   var document = client.document();
   var variables = {};
   variables.customerDefaultAddressUpdate = {};
@@ -9180,7 +9245,7 @@ function query$35(client) {
   return document;
 }
 
-function query$36(client) {
+function query$37(client) {
   var document = client.document();
   var variables = {};
   variables.customerRecover = {};
@@ -9200,7 +9265,7 @@ function query$36(client) {
   return document;
 }
 
-function query$37(client) {
+function query$38(client) {
   var document = client.document();
   var variables = {};
   variables.customerReset = {};
@@ -9225,7 +9290,7 @@ function query$37(client) {
   return document;
 }
 
-function query$38(client) {
+function query$39(client) {
   var document = client.document();
   var variables = {};
   variables.customerActivate = {};
@@ -9250,7 +9315,7 @@ function query$38(client) {
   return document;
 }
 
-function query$39(client) {
+function query$40(client) {
   var document = client.document();
   var spreads = {};
   var variables = {};
@@ -9386,7 +9451,7 @@ var CustomerResource = function (_Resource) {
     value: function createAccessToken() {
       var input = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-      return this.graphQLClient.send(query$26, { input: input }).then(handleCustomerMutation('customerAccessTokenCreate', this.graphQLClient));
+      return this.graphQLClient.send(query$27, { input: input }).then(handleCustomerMutation('customerAccessTokenCreate', this.graphQLClient));
     }
 
     /**
@@ -9408,7 +9473,7 @@ var CustomerResource = function (_Resource) {
     value: function createAccessTokenWithMultipass() {
       var multipassToken = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
-      return this.graphQLClient.send(query$27, { multipassToken: multipassToken }).then(handleCustomerMutation('customerAccessTokenCreateWithMultipass', this.graphQLClient));
+      return this.graphQLClient.send(query$28, { multipassToken: multipassToken }).then(handleCustomerMutation('customerAccessTokenCreateWithMultipass', this.graphQLClient));
     }
 
     /**
@@ -9427,7 +9492,7 @@ var CustomerResource = function (_Resource) {
   }, {
     key: 'deleteAccessToken',
     value: function deleteAccessToken(customerAccessToken) {
-      return this.graphQLClient.send(query$28, { customerAccessToken: customerAccessToken }).then(handleCustomerMutation('customerAccessTokenDelete', this.graphQLClient));
+      return this.graphQLClient.send(query$29, { customerAccessToken: customerAccessToken }).then(handleCustomerMutation('customerAccessTokenDelete', this.graphQLClient));
     }
 
     /**
@@ -9445,7 +9510,7 @@ var CustomerResource = function (_Resource) {
   }, {
     key: 'renewAccessToken',
     value: function renewAccessToken(customerAccessToken) {
-      return this.graphQLClient.send(query$29, { customerAccessToken: customerAccessToken }).then(handleCustomerMutation('customerAccessTokenRenew', this.graphQLClient));
+      return this.graphQLClient.send(query$30, { customerAccessToken: customerAccessToken }).then(handleCustomerMutation('customerAccessTokenRenew', this.graphQLClient));
     }
 
     /**
@@ -9476,7 +9541,7 @@ var CustomerResource = function (_Resource) {
     value: function create() {
       var input = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-      return this.graphQLClient.send(query$30, { input: input }).then(handleCustomerMutation('customerCreate', this.graphQLClient));
+      return this.graphQLClient.send(query$31, { input: input }).then(handleCustomerMutation('customerCreate', this.graphQLClient));
     }
 
     /**
@@ -9506,7 +9571,7 @@ var CustomerResource = function (_Resource) {
       var customerAccessToken = _ref.customerAccessToken,
           customer = _ref.customer;
 
-      return this.graphQLClient.send(query$31, { customerAccessToken: customerAccessToken, customer: customer }).then(handleCustomerMutation('customerUpdate', this.graphQLClient));
+      return this.graphQLClient.send(query$32, { customerAccessToken: customerAccessToken, customer: customer }).then(handleCustomerMutation('customerUpdate', this.graphQLClient));
     }
 
     /**
@@ -9538,7 +9603,7 @@ var CustomerResource = function (_Resource) {
       var customerAccessToken = _ref2.customerAccessToken,
           address = _ref2.address;
 
-      return this.graphQLClient.send(query$32, { customerAccessToken: customerAccessToken, address: address }).then(handleCustomerMutation('customerAddressCreate', this.graphQLClient));
+      return this.graphQLClient.send(query$33, { customerAccessToken: customerAccessToken, address: address }).then(handleCustomerMutation('customerAddressCreate', this.graphQLClient));
     }
 
     /**
@@ -9566,7 +9631,7 @@ var CustomerResource = function (_Resource) {
       var customerAccessToken = _ref3.customerAccessToken,
           id = _ref3.id;
 
-      return this.graphQLClient.send(query$34, { customerAccessToken: customerAccessToken, id: id }).then(handleCustomerMutation('customerAddressDelete', this.graphQLClient));
+      return this.graphQLClient.send(query$35, { customerAccessToken: customerAccessToken, id: id }).then(handleCustomerMutation('customerAddressDelete', this.graphQLClient));
     }
 
     /**
@@ -9597,7 +9662,7 @@ var CustomerResource = function (_Resource) {
           id = _ref4.id,
           address = _ref4.address;
 
-      return this.graphQLClient.send(query$33, { customerAccessToken: customerAccessToken, id: id, address: address }).then(handleCustomerMutation('customerAddressUpdate', this.graphQLClient));
+      return this.graphQLClient.send(query$34, { customerAccessToken: customerAccessToken, id: id, address: address }).then(handleCustomerMutation('customerAddressUpdate', this.graphQLClient));
     }
 
     /**
@@ -9625,7 +9690,7 @@ var CustomerResource = function (_Resource) {
       var customerAccessToken = _ref5.customerAccessToken,
           addressId = _ref5.addressId;
 
-      return this.graphQLClient.send(query$35, { customerAccessToken: customerAccessToken, addressId: addressId }).then(handleCustomerMutation('customerDefaultAddressUpdate', this.graphQLClient));
+      return this.graphQLClient.send(query$36, { customerAccessToken: customerAccessToken, addressId: addressId }).then(handleCustomerMutation('customerDefaultAddressUpdate', this.graphQLClient));
     }
 
     /**
@@ -9643,7 +9708,7 @@ var CustomerResource = function (_Resource) {
   }, {
     key: 'recover',
     value: function recover(email) {
-      return this.graphQLClient.send(query$36, { email: email }).then(handleCustomerMutation('customerRecover', this.graphQLClient));
+      return this.graphQLClient.send(query$37, { email: email }).then(handleCustomerMutation('customerRecover', this.graphQLClient));
     }
 
     /**
@@ -9674,7 +9739,7 @@ var CustomerResource = function (_Resource) {
       var id = _ref6.id,
           input = _ref6.input;
 
-      return this.graphQLClient.send(query$37, { id: id, input: input }).then(handleCustomerMutation('customerReset', this.graphQLClient));
+      return this.graphQLClient.send(query$38, { id: id, input: input }).then(handleCustomerMutation('customerReset', this.graphQLClient));
     }
 
     /**
@@ -9705,7 +9770,7 @@ var CustomerResource = function (_Resource) {
       var id = _ref7.id,
           input = _ref7.input;
 
-      return this.graphQLClient.send(query$38, { id: id, input: input }).then(handleCustomerMutation('customerActivate', this.graphQLClient));
+      return this.graphQLClient.send(query$39, { id: id, input: input }).then(handleCustomerMutation('customerActivate', this.graphQLClient));
     }
 
     /**
@@ -9723,7 +9788,7 @@ var CustomerResource = function (_Resource) {
   }, {
     key: 'fetch',
     value: function fetch(customerAccessToken) {
-      return this.graphQLClient.send(query$39, { customerAccessToken: customerAccessToken }).then(defaultResolver('customer'));
+      return this.graphQLClient.send(query$40, { customerAccessToken: customerAccessToken }).then(defaultResolver('customer'));
     }
   }]);
   return CustomerResource;
@@ -9763,6 +9828,13 @@ var AutomaticDiscountApplication = {
   "implementsNode": false
 };
 
+var AvailableShippingRates = {
+  "name": "AvailableShippingRates",
+  "kind": "OBJECT",
+  "fieldBaseTypes": {},
+  "implementsNode": false
+};
+
 var Boolean$1 = {
   "name": "Boolean",
   "kind": "SCALAR"
@@ -9773,6 +9845,7 @@ var Checkout = {
   "kind": "OBJECT",
   "fieldBaseTypes": {
     "appliedGiftCards": "AppliedGiftCard",
+    "availableShippingRates": "AvailableShippingRates",
     "completedAt": "DateTime",
     "createdAt": "DateTime",
     "currencyCode": "CurrencyCode",
@@ -9828,11 +9901,12 @@ var CheckoutCreatePayload = {
   "implementsNode": false
 };
 
-var CheckoutCustomerAssociatePayload = {
-  "name": "CheckoutCustomerAssociatePayload",
+var CheckoutCustomerAssociateV2Payload = {
+  "name": "CheckoutCustomerAssociateV2Payload",
   "kind": "OBJECT",
   "fieldBaseTypes": {
     "checkout": "Checkout",
+    "checkoutUserErrors": "CheckoutUserError",
     "userErrors": "UserError"
   },
   "implementsNode": false
@@ -9992,6 +10066,16 @@ var CheckoutShippingAddressUpdateV2Payload = {
     "checkout": "Checkout",
     "checkoutUserErrors": "CheckoutUserError",
     "userErrors": "UserError"
+  },
+  "implementsNode": false
+};
+
+var CheckoutShippingLineUpdatePayload = {
+  "name": "CheckoutShippingLineUpdatePayload",
+  "kind": "OBJECT",
+  "fieldBaseTypes": {
+    "checkout": "Checkout",
+    "checkoutUserErrors": "CheckoutUserError"
   },
   "implementsNode": false
 };
@@ -10445,7 +10529,7 @@ var Mutation$1 = {
   "fieldBaseTypes": {
     "checkoutAttributesUpdateV2": "CheckoutAttributesUpdateV2Payload",
     "checkoutCreate": "CheckoutCreatePayload",
-    "checkoutCustomerAssociate": "CheckoutCustomerAssociatePayload",
+    "checkoutCustomerAssociateV2": "CheckoutCustomerAssociateV2Payload",
     "checkoutCustomerDisassociate": "CheckoutCustomerDisassociatePayload",
     "checkoutDiscountCodeApplyV2": "CheckoutDiscountCodeApplyV2Payload",
     "checkoutDiscountCodeRemove": "CheckoutDiscountCodeRemovePayload",
@@ -10457,6 +10541,7 @@ var Mutation$1 = {
     "checkoutLineItemsReplace": "CheckoutLineItemsReplacePayload",
     "checkoutLineItemsUpdate": "CheckoutLineItemsUpdatePayload",
     "checkoutShippingAddressUpdateV2": "CheckoutShippingAddressUpdateV2Payload",
+    "checkoutShippingLineUpdate": "CheckoutShippingLineUpdatePayload",
     "customerAccessTokenCreate": "CustomerAccessTokenCreatePayload",
     "customerAccessTokenCreateWithMultipass": "CustomerAccessTokenCreateWithMultipassPayload",
     "customerAccessTokenDelete": "CustomerAccessTokenDeletePayload",
@@ -10853,11 +10938,12 @@ var Types = {
 Types.types["AppliedGiftCard"] = AppliedGiftCard;
 Types.types["Attribute"] = Attribute;
 Types.types["AutomaticDiscountApplication"] = AutomaticDiscountApplication;
+Types.types["AvailableShippingRates"] = AvailableShippingRates;
 Types.types["Boolean"] = Boolean$1;
 Types.types["Checkout"] = Checkout;
 Types.types["CheckoutAttributesUpdateV2Payload"] = CheckoutAttributesUpdateV2Payload;
 Types.types["CheckoutCreatePayload"] = CheckoutCreatePayload;
-Types.types["CheckoutCustomerAssociatePayload"] = CheckoutCustomerAssociatePayload;
+Types.types["CheckoutCustomerAssociateV2Payload"] = CheckoutCustomerAssociateV2Payload;
 Types.types["CheckoutCustomerDisassociatePayload"] = CheckoutCustomerDisassociatePayload;
 Types.types["CheckoutDiscountCodeApplyV2Payload"] = CheckoutDiscountCodeApplyV2Payload;
 Types.types["CheckoutDiscountCodeRemovePayload"] = CheckoutDiscountCodeRemovePayload;
@@ -10873,6 +10959,7 @@ Types.types["CheckoutLineItemsRemovePayload"] = CheckoutLineItemsRemovePayload;
 Types.types["CheckoutLineItemsReplacePayload"] = CheckoutLineItemsReplacePayload;
 Types.types["CheckoutLineItemsUpdatePayload"] = CheckoutLineItemsUpdatePayload;
 Types.types["CheckoutShippingAddressUpdateV2Payload"] = CheckoutShippingAddressUpdateV2Payload;
+Types.types["CheckoutShippingLineUpdatePayload"] = CheckoutShippingLineUpdatePayload;
 Types.types["CheckoutUserError"] = CheckoutUserError;
 Types.types["Collection"] = Collection;
 Types.types["CollectionConnection"] = CollectionConnection;

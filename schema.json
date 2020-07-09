@@ -8624,7 +8624,7 @@
             },
             {
               "name": "tags",
-              "description": "A list of tags assigned to the customer.\nAdditional access scope required: unauthenticated_read_customer_tags.\n",
+              "description": "A comma separated list of tags that have been added to the customer.\nAdditional access scope required: unauthenticated_read_customer_tags.\n",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -17565,7 +17565,7 @@
             },
             {
               "name": "tags",
-              "description": "A categorization that a product can be tagged with, commonly used for filtering and searching.\nAdditional access scope required for private apps: unauthenticated_read_product_tags.\n",
+              "description": "A comma separated list of tags that have been added to the product.\nAdditional access scope required for private apps: unauthenticated_read_product_tags.\n",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -20653,7 +20653,7 @@
             },
             {
               "name": "productTags",
-              "description": "Tags added to products.\nAdditional access scope required: unauthenticated_read_product_tags.\n",
+              "description": "A comma separated list of tags that have been added to products.\nAdditional access scope required: unauthenticated_read_product_tags.\n",
               "args": [
                 {
                   "name": "first",
