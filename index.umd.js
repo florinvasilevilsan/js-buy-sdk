@@ -8904,7 +8904,7 @@ var CheckoutResource = function (_Resource) {
      * const checkoutId = 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC9kMTZmM2EzMDM4Yjc4N=';
      * const shippingRateHandle = 'placeholder';
      *
-     * client.checkout.updateShippingAddress(checkoutId, shippingRateHandle).then(checkout => {
+     * client.checkout.updateShippingline(checkoutId, shippingRateHandle).then(checkout => {
      *   // Do something with the updated checkout
      * });
      *
@@ -8914,8 +8914,8 @@ var CheckoutResource = function (_Resource) {
      */
 
   }, {
-    key: 'updateShippingAddress',
-    value: function updateShippingAddress(checkoutId, shippingRateHandle) {
+    key: 'updateShippingline',
+    value: function updateShippingline(checkoutId, shippingRateHandle) {
       return this.graphQLClient.send(query$26, { checkoutId: checkoutId, shippingRateHandle: shippingRateHandle }).then(handleCheckoutMutation('checkoutShippingLineUpdate', this.graphQLClient));
     }
   }]);

@@ -372,7 +372,7 @@ class CheckoutResource extends Resource {
    * const checkoutId = 'Z2lkOi8vc2hvcGlmeS9DaGVja291dC9kMTZmM2EzMDM4Yjc4N=';
    * const shippingRateHandle = 'placeholder';
    *
-   * client.checkout.updateShippingAddress(checkoutId, shippingRateHandle).then(checkout => {
+   * client.checkout.updateShippingline(checkoutId, shippingRateHandle).then(checkout => {
    *   // Do something with the updated checkout
    * });
    *
@@ -380,7 +380,7 @@ class CheckoutResource extends Resource {
    * @param  {Object} shippingRateHandle A shipping rate handle.
    * @return {Promise|GraphModel} A promise resolving with the updated checkout.
    */
-  updateShippingAddress(checkoutId, shippingRateHandle) {
+  updateShippingline(checkoutId, shippingRateHandle) {
     return this.graphQLClient
       .send(checkoutShippingLineUpdateMutation, {checkoutId, shippingRateHandle})
       .then(handleCheckoutMutation('checkoutShippingLineUpdate', this.graphQLClient));

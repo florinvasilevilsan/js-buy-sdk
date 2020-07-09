@@ -12,6 +12,7 @@ export default {
         "edges": []
       },
       "shippingAddress": null,
+      "availableShippingRates": null,
       "shippingLine": null,
       "requiresShipping": false,
       "customAttributes": [],
